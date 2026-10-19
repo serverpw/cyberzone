@@ -1,44 +1,32 @@
-/* styles.css - desain kartun/ceria untuk simulasi edukasi */
+/* styles.css - lebih kartun, warna ceria, dan pesan besar */
 :root{
-  --bg:#f3fbff;
+  --bg:#fff9fb;
   --card:#ffffff;
-  --accent:#7ed6df;
-  --accent-2:#ffb86b;
-  --muted:#666;
-  --text:#0b2540;
+  --accent:#ffb86b;
+  --accent-2:#7ed6df;
+  --text:#052235;
+  --muted:#586777;
 }
 *{box-sizing:border-box}
-body{
-  margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background:linear-gradient(180deg,var(--bg),#eaf7ff);
-  color:var(--text);
-  display:flex; align-items:center; justify-content:center; min-height:100vh; padding:28px;
-}
-.container{width:820px; max-width:95%}
-.card{background:var(--card); border-radius:14px; padding:18px; margin-bottom:14px; box-shadow:0 8px 24px rgba(11,37,64,0.06)}
-.hero{display:flex; gap:18px; align-items:center}
-.hero-left{flex:0 0 160px}
-.hero-right{flex:1}
-h1{margin:0 0 6px 0; font-size:1.6rem}
-.lead{margin:0;color:var(--muted)}
-.badge{display:inline-block;margin-top:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#003; padding:6px 10px;border-radius:999px;font-weight:600}
-.actions{text-align:center}
-button{background:var(--accent); border:0; padding:10px 16px; border-radius:10px; font-weight:700; color:#003; cursor:pointer; transition:transform .12s ease, box-shadow .12s ease}
-button:hover{box-shadow:0 6px 18px rgba(30,120,120,0.12); transform:translateY(-2px)}
+body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:linear-gradient(180deg,#fffbff,#f0ffff);color:var(--text);display:flex;align-items:center;justify-content:center;min-height:100vh;padding:28px}
+.wrap{width:880px;max-width:96%}
+.card{background:var(--card);border-radius:16px;padding:22px;margin-bottom:14px;box-shadow:0 12px 36px rgba(5,34,53,0.08)}
+.big{position:relative;text-align:center;padding-top:26px;padding-bottom:32px}
+.character{position:absolute;left:24px;top:-20px}
+.huge{font-size:2.4rem;margin:22px 0 8px 0;color:#b22b2b;letter-spacing:1px}
+.lead{margin:0;color:var(--muted);font-weight:600}
+.actions{margin-top:18px}
+button{background:linear-gradient(90deg,var(--accent-2),var(--accent));border:0;padding:12px 18px;border-radius:999px;font-weight:800;color:#043;cursor:pointer;margin:0 8px;box-shadow:0 8px 20px rgba(30,120,120,0.08)}
+button.ghost{background:transparent;border:2px solid rgba(4,50,60,0.06)}
 .hidden{display:none}
-.fake-email{border-radius:10px;padding:12px;background:linear-gradient(180deg,#fff,#f7ffff);border:1px dashed rgba(0,0,0,0.06)}
-.fake-email .from{font-weight:700;color:#0b3b4a}
-.fake-email .subject{margin-top:6px;font-weight:600}
-.fake-email .body{margin-top:10px}
-.analysis{margin-top:12px;background:#fff8e6;padding:12px;border-radius:8px}
-.result{margin-top:12px}
-.alert{background:#fffbf0;padding:10px;border-radius:8px;color:#6b3d00}
-.quiz{margin-top:12px}
-.choice{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:#fff;cursor:pointer}
-.choice:hover{transform:translateY(-2px)}
-.muted{color:var(--muted);font-size:0.9rem}
-footer.muted{background:transparent; text-align:center}
-@media (max-width:640px){
-  .hero{flex-direction:column;align-items:flex-start}
-  .hero-left{flex:unset}
-}
+.debrief h2{margin-top:0}
+.muted{color:var(--muted)}
+.note{text-align:center;color:var(--muted);font-size:0.9rem}
+
+/* Simple confetti effect */
+.confetti{position:absolute;inset:0;pointer-events:none}
+.confetti.play::before, .confetti.play::after{content:'';position:absolute;left:50%;top:10px;width:12px;height:12px;border-radius:2px;box-shadow: -120px 60px #ffd566, -80px 40px #ff7b7b, -40px 80px #7ed6df, 0 30px #ffd566, 40px 90px #ff7b7b, 80px 50px #7ed6df, 120px 70px #ffd566;transform:translateX(-50%) rotate(10deg);animation:fall 2s ease-out forwards}
+.confetti.play::after{transform:translateX(-50%) rotate(-12deg);animation-delay:0.2s}
+@keyframes fall{0%{opacity:1;transform:translateY(-20px) scaleY(0.6)}100%{opacity:0;transform:translateY(220px) rotate(240deg) scaleY(1)}}
+
+@media (max-width:720px){.character{position:static;margin-bottom:12px;text-align:center}.huge{font-size:1.8rem}}
